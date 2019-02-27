@@ -271,8 +271,9 @@ class BrowserView:
 
     @staticmethod
     def alert(message):
-        WinForms.MessageBox.Show(message)
-
+        # Fix error alert on non string value
+        # TypeError: No method matches given arguments
+        WinForms.MessageBox.Show(str(message))
 
 def create_window(uid, title, url, width, height, resizable, fullscreen, min_size,
                   confirm_quit, background_color, debug, js_api, text_select, frameless, webview_ready):
